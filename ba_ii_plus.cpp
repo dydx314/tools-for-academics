@@ -1,12 +1,13 @@
 #include <iostream>
 #include <math.h>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
 // default is ordinary annuity
 string ann = "END";
-int pres = 6;
+int pres = 2;
 
 void calculate() {
 	while (true) {
@@ -17,8 +18,7 @@ void calculate() {
 		cout << "PMT: "; cin >> pmt_s; if (pmt_s == "e") break;
 		cout << "FV: "; cin >> fv_s; if (fv_s == "e") break;
 		cout << "------------" << endl;
-		cout.precision(pres);
-		cout << fixed;
+		cout << fixed << setprecision(pres);
 		if (n_s == "c") {
 			i = stod(i_s)/100; pv = stod(pv_s); pmt = stod(pmt_s); fv = stod(fv_s);
 			if (pmt == 0) n = log(fv/pv)/log(1+i);
